@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Favourite from "@/assets/favourite.svg";
 import Link from "next/link";
-import { GetArtPiecesData } from "@/libs/artPieces";
 
 export default function ArtPieceCard({ foundArtPiece }) {
-  const { slug, imageSource, name, artist } = foundArtPiece;
+  const { slug, imageSource, name, artist, colors } = foundArtPiece;
   console.log(foundArtPiece);
   return (
     <>
@@ -14,14 +13,43 @@ export default function ArtPieceCard({ foundArtPiece }) {
       <section>
         <Link href={`/art-pieces/${slug}`}>
           {" "}
-          <Image src={imageSource} alt={name} width="300" height="150" />
+          <Image
+            src={imageSource}
+            alt={name}
+            width="300"
+            height="150"
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </Link>
 
         <span>
           <Favourite />
         </span>
+        <ul
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            listStyle: "none",
+            gap: "1em",
+          }}
+        >
+          {colors.map((color) => (
+            <li key={color}>
+              <div
+                style={{
+                  backgroundColor: color,
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                }}
+              ></div>
+            </li>
+          ))}
+        </ul>
         <h2>
-          „{name}“ by {artist}
+          {artist}: „{name}“
         </h2>
       </section>
     </>

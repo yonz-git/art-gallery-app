@@ -7,7 +7,15 @@ export default function ArtPiecePreview({ artPiece }) {
   return (
     <section>
       <Link href={`/art-pieces/${slug}`}>
-        <Image src={imageSource} alt={name} width="300" height="150" />
+        <Image
+          src={imageSource}
+          alt={name}
+          width="300"
+          height="150"
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </Link>
 
       <span>
