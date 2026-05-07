@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Favourite from "@/assets/favourite.svg";
+import Favorite from "@/assets/favorite.svg";
 import Link from "next/link";
 
 export default function ArtPieceCard({ foundArtPiece }) {
@@ -26,7 +26,7 @@ export default function ArtPieceCard({ foundArtPiece }) {
         </Link>
 
         <span>
-          <Favourite />
+          <Favorite />
         </span>
         <ul
           style={{
