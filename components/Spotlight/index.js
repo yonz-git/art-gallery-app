@@ -1,15 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import Favorite from "@/assets/favorite.svg";
 
-export default function ArtPiecePreview({ src, name, artist, slug }) {
+export default function Spotlight({ artPiece }) {
   return (
-    <section>
-      <Link href={`/art-pieces/${slug}`}>
-        {" "}
+    <>
+      <Link href="/art-pieces">
         <Image
-          src={src}
-          alt={name}
+          src={artPiece.imageSource}
+          alt={artPiece.name}
           width="300"
           height="150"
           style={{
@@ -21,9 +20,7 @@ export default function ArtPiecePreview({ src, name, artist, slug }) {
       <span>
         <Favorite />
       </span>
-      <h2>
-        „{name}“ by {artist}
-      </h2>
-    </section>
+      <h2>{artPiece.artist}</h2>
+    </>
   );
 }
