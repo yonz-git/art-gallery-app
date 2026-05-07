@@ -9,3 +9,8 @@ export function GetArtPiecesData() {
 
   return { artPieces, error, isLoading };
 }
+
+export function GetRandomArtPiece(artPieces) {
+  const randomNumber = Math.floor(Math.random() * artPieces.length);
+  return artPieces[randomNumber];
+}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Favourite from "@/assets/favourite.svg";
+import Favorite from "@/assets/favorite.svg";
 
 export default function ArtPiecePreview({ artPiece }) {
   const { imageSource, name, slug, artist } = artPiece;
@@ -19,7 +19,7 @@ export default function ArtPiecePreview({ artPiece }) {
       </Link>
 
       <span>
-        <Favourite />
+        <Favorite />
       </span>
       <h2>
         „{name}“ by {artist}
