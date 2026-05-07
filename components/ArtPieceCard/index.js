@@ -3,7 +3,8 @@ import Favourite from "@/assets/favourite.svg";
 import Link from "next/link";
 
 export default function ArtPieceCard({ foundArtPiece }) {
-  const { slug, imageSource, name, artist, colors } = foundArtPiece;
+  const { slug, imageSource, name, artist, colors, genre, year } =
+    foundArtPiece;
   console.log(foundArtPiece);
   return (
     <>
@@ -49,8 +50,9 @@ export default function ArtPieceCard({ foundArtPiece }) {
           ))}
         </ul>
         <h2>
-          {artist}: „{name}“
+          {artist}: „{name}“<em>{year}</em>
         </h2>
+        <h3>{genre}</h3>
       </section>
     </>
   );
