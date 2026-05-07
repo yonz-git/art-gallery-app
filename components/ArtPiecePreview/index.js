@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Favorite from "@/assets/favorite.svg";
 
-export default function ArtPiecePreview({ src, name, artist, slug }) {
+export default function ArtPiecePreview({ artPiece }) {
+  const { imageSource, name, slug, artist } = artPiece;
   return (
     <section>
       <Link href={`/art-pieces/${slug}`}>
-        {" "}
         <Image
-          src={src}
+          src={imageSource}
           alt={name}
           width="300"
           height="150"

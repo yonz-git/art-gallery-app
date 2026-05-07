@@ -1,13 +1,8 @@
-import useSWR from "swr";
 import ArtPiecePreview from "@/components/ArtPiecePreview";
+import { GetArtPiecesData } from "@/libs/artPieces";
 
 export default function ArtPiecesList() {
-  const {
-    data: artPieces,
-    error,
-    isLoading,
-  } = useSWR("https://example-apis.vercel.app/api/art");
-
+  const { artPieces, error, isLoading } = GetArtPiecesData();
   if (error) {
     console.error("ERROR!", error.info);
 
@@ -20,12 +15,7 @@ export default function ArtPiecesList() {
     <ul>
       {artPieces.map((artPiece) => (
         <li key={artPiece.slug}>
-          <ArtPiecePreview
-            src={artPiece.imageSource}
-            name={artPiece.name}
-            artist={artPiece.artist}
-            slug={artPiece.slug}
-          />
+          <ArtPiecePreview artPiece={artPiece} />
         </li>
       ))}
     </ul>
