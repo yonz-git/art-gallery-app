@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Favourite from "@/public/assets/favourite.svg";
+import Favourite from "@/assets/favourite.svg";
 
 export default function ArtPiecePreview({ src, name, artist, slug }) {
   return (
