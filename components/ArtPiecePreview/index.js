@@ -27,7 +27,7 @@ export default function ArtPiecePreview({ artPieces, artPiece, setArtPieces }) {
         isFavorite={artPiece.isFavorite}
       />
       <h2>
-        "{name}“ by {artist}
+        &quot;{name}&quot; by {artist}
       </h2>
     </section>
   );
