@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import Favorite from "@/assets/favorite.svg";
+import FavoriteButton from "@/components/FavoriteButton";
+import { ToggleFavorite } from "@/libs/artPieces";
 
-export default function Spotlight({ artPiece }) {
+export default function Spotlight({ artPieces, artPiece, setArtPieces }) {
   return (
     <>
       <Link href="/art-pieces">
@@ -16,10 +17,13 @@ export default function Spotlight({ artPiece }) {
           }}
         />
       </Link>
-
-      <span>
-        <Favorite />
-      </span>
+      <FavoriteButton
+        onToggleFavorite={() =>
+          setArtPieces(ToggleFavorite(artPieces, artPiece))
+        }
+        isFavorite={artPiece.isFavorite}
+        disabled
+      />
       <h2>{artPiece.artist}</h2>
     </>
   );

@@ -1,11 +1,15 @@
 import Image from "next/image";
-import Favorite from "@/assets/favorite.svg";
 import Link from "next/link";
+import FavoriteButton from "@/components/FavoriteButton";
+import { ToggleFavorite } from "@/libs/artPieces";
 
-export default function ArtPieceCard({ foundArtPiece }) {
+export default function ArtPieceCard({
+  artPieces,
+  foundArtPiece,
+  setArtPieces,
+}) {
   const { slug, imageSource, name, artist, colors, genre, year } =
     foundArtPiece;
-  console.log(foundArtPiece);
   return (
     <>
       <span>
@@ -13,7 +17,6 @@ export default function ArtPieceCard({ foundArtPiece }) {
       </span>
       <section>
         <Link href={`/art-pieces/${slug}`}>
-          {" "}
           <Image
             src={imageSource}
             alt={name}
@@ -25,9 +28,12 @@ export default function ArtPieceCard({ foundArtPiece }) {
           />
         </Link>
 
-        <span>
-          <Favorite />
-        </span>
+        <FavoriteButton
+          onToggleFavorite={() =>
+            setArtPieces(ToggleFavorite(artPieces, foundArtPiece))
+          }
+          isFavorite={foundArtPiece.isFavorite}
+        />
         <ul
           style={{
             display: "flex",
@@ -50,7 +56,7 @@ export default function ArtPieceCard({ foundArtPiece }) {
           ))}
         </ul>
         <h2>
-          {artist}: „{name}“<em>{year}</em>
+          {artist}: "{name}“ <em>{year}</em>
         </h2>
         <h3>{genre}</h3>
       </section>
