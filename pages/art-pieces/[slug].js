@@ -1,3 +1,7 @@
+import NavBar from "@/components/NavBar";
+
+
+
 import ArtPieceCard from "@/components/ArtPieceCard";
 import { useRouter } from "next/router";
 import { GetArtPiecesData } from "@/libs/artPieces";
@@ -14,11 +18,11 @@ export default function ArtPiecesDetail() {
 
   if (isLoading || !artPieces) return <div>loading...</div>;
   const foundArtPiece = artPieces.find((artPiece) => artPiece.slug === slug);
-  console.log(foundArtPiece);
   return (
     <>
       <h1>Art Piece Detail Page</h1>
       <ArtPieceCard foundArtPiece={foundArtPiece} />
+  <NavBar />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import ArtPiecesList from "@/components/ArtPiecesList";
+import NavBar from "@/components/NavBar";
 import Head from "next/head";
 
 export default function ArtPieces() {
@@ -9,6 +10,7 @@ export default function ArtPieces() {
       </Head>
       <h1>Art Gallery</h1>
       <ArtPiecesList />
+      <NavBar />
     </>
   );
 }
