@@ -1,17 +1,6 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
-import { GetArtPiecesData } from "@/libs/artPieces";
 
-export default function FavoritesList() {
-  const { artPieces, error, isLoading } = GetArtPiecesData();
-  if (error) {
-    console.error("ERROR!", error.info);
-
-    return <div>failed to load</div>;
-  }
-
-  if (isLoading || !artPieces) return <div>loading...</div>;
-  console.dir(artPieces);
-
+export default function FavoritesList({ artPieces, setArtPieces }) {
   const favoritePieces = artPieces.filter((artPiece) => {
     const info = artPieces?.find((item) => item.slug === artPiece.slug);
 
@@ -22,7 +11,11 @@ export default function FavoritesList() {
     <ul>
       {favoritePieces?.map((artPiece) => (
         <li key={artPiece.slug}>
-          <ArtPiecePreview artPiece={artPiece} />
+          <ArtPiecePreview
+            artPieces={artPieces}
+            artPiece={artPiece}
+            setArtPieces={setArtPieces}
+          />
         </li>
       ))}
     </ul>
