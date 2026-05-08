@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import GlobalStyle from "../styles";
 import useSWR, { SWRConfig } from "swr";
+import useLocalStorageState from "use-local-storage-state";
 
 const fetcher = async (resource, init) => {
   const result = await fetch(resource, init);
@@ -16,16 +17,18 @@ const fetcher = async (resource, init) => {
 };
 
 export default function App({ Component, pageProps }) {
+  const [artPieces, setArtPieces] = useLocalStorageState("artPieces", {
+    defaultValue: [],
+  });
   const { data, error, isLoading, mutate } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher
   );
-
-  const [artPieces, setArtPieces] = useState([]);
-
   useEffect(() => {
-    if (data) {
-      setArtPieces(data);
+    if (artPieces.length === 0) {
+      if (data) {
+        setArtPieces(data);
+      }
     }
   }, [data]);
 

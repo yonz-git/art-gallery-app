@@ -1,4 +1,7 @@
 export default function CommentsList({ comments }) {
+  if (!comments) {
+    return "";
+  }
   return (
     <section>
       <h3>Comments:</h3>
