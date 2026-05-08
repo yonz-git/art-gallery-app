@@ -6,6 +6,9 @@ const ListItem = styled.li`
   display: flex;
   justify-content: flex-start;
 `;
+const ListWrapper = styled.ul`
+  margin-bottom: 60px;
+`;
 export default function ArtPiecesList() {
   const { artPieces, error, isLoading } = GetArtPiecesData();
   if (error) {
@@ -17,12 +20,12 @@ export default function ArtPiecesList() {
   if (isLoading || !artPieces) return <div>loading...</div>;
   console.dir(artPieces);
   return (
-    <ul>
+    <ListWrapper>
       {artPieces.map((artPiece) => (
         <ListItem key={artPiece.slug}>
           <ArtPiecePreview artPiece={artPiece} />
         </ListItem>
       ))}
-    </ul>
+    </ListWrapper>
   );
 }

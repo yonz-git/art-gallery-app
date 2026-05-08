@@ -6,9 +6,9 @@ export default function Favorites() {
   return (
     <>
       <Head>
-        <title>Gallery</title>
+        <title>Favorites</title>
       </Head>
-      <h1>Art Gallery</h1>
+      <h1>Favorites</h1>
       <FavoritesList />
       <NavBar />
     </>
