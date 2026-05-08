@@ -46,7 +46,6 @@ const NavItem = styled.li`
 
 export default function NavBar() {
   const router = useRouter();
-  console.dir(router);
 
   return (
     <StyledNav>
