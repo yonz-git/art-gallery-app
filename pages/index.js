@@ -1,6 +1,10 @@
 import Head from "next/head";
+import Link from "next/link";
+import NavBar from "@/components/NavBar";
+import Image from "next/image";
 import { GetRandomArtPiece } from "@/libs/artPieces";
 import Spotlight from "@/components/Spotlight";
+
 
 export default function HomePage({ artPieces, setArtPieces }) {
   return (
@@ -14,6 +18,7 @@ export default function HomePage({ artPieces, setArtPieces }) {
         artPiece={GetRandomArtPiece(artPieces)}
         setArtPieces={setArtPieces}
       />
+            <NavBar />
     </>
   );
 }

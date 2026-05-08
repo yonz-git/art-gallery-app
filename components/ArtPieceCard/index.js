@@ -2,20 +2,50 @@ import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "@/components/FavoriteButton";
 import { ToggleFavorite } from "@/libs/artPieces";
+import ColorPalette from "../ColorPalette";
+import CommentsForm from "../CommentsForm";
+import styled from "styled-components";
+
+const CardWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 16px;
+  margin: -8px -16px;
+  border-radius: 4px;
+`;
+
+
+
+const ColorWrapper = styled.ul`
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 1em;
+`;
+
+const FormWrapper = styled.section`
+  border-top: solid 1px #dddddd;
+  margin-bottom: 75px;
+`;
 
 export default function ArtPieceCard({
   artPieces,
   foundArtPiece,
   setArtPieces,
 }) {
+  
   const { slug, imageSource, name, artist, colors, genre, year } =
     foundArtPiece;
+
   return (
     <>
       <span>
         <Link href="/art-pieces">Go Back to Overview</Link>
       </span>
-      <section>
+      <CardWrapper>
         <Link href={`/art-pieces/${slug}`}>
           <Image
             src={imageSource}
@@ -34,32 +64,19 @@ export default function ArtPieceCard({
           }
           isFavorite={foundArtPiece.isFavorite}
         />
-        <ul
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            listStyle: "none",
-            gap: "1em",
-          }}
-        >
-          {colors.map((color) => (
-            <li key={color}>
-              <div
-                style={{
-                  backgroundColor: color,
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                }}
-              ></div>
-            </li>
-          ))}
-        </ul>
+
+   
+        <ColorWrapper>
+          <ColorPalette colors={colors} />
+        </ColorWrapper>
         <h2>
           {artist}: "{name}“ <em>{year}</em>
         </h2>
         <h3>{genre}</h3>
-      </section>
+      </CardWrapper>
+      <FormWrapper>
+        <CommentsForm />
+      </FormWrapper>
     </>
   );
 }
