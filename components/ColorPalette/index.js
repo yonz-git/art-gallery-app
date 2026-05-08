@@ -1,4 +1,4 @@
-export default function ColorPallette({ colors }) {
+export default function ColorPalette({ colors }) {
   return colors.map((color) => (
     <li key={color}>
       <div
