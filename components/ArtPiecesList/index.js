@@ -2,15 +2,9 @@ import ArtPiecePreview from "@/components/ArtPiecePreview";
 import { GetArtPiecesData } from "@/libs/artPieces";
 import styled from "styled-components";
 
-const ListWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
 const ListItem = styled.li`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
 `;
 export default function ArtPiecesList() {
   const { artPieces, error, isLoading } = GetArtPiecesData();
@@ -23,12 +17,12 @@ export default function ArtPiecesList() {
   if (isLoading || !artPieces) return <div>loading...</div>;
   console.dir(artPieces);
   return (
-    <ListWrapper>
+    <ul>
       {artPieces.map((artPiece) => (
         <ListItem key={artPiece.slug}>
           <ArtPiecePreview artPiece={artPiece} />
         </ListItem>
       ))}
-    </ListWrapper>
+    </ul>
   );
 }
