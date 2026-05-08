@@ -58,8 +58,8 @@ export default function NavBar() {
         >
           <Link href="/art-pieces">Art Pieces</Link>
         </NavItem>
-        <NavItem className={router.pathname === "/favorite" ? "active" : ""}>
-          <Link href="/favorite">Favorites</Link>
+        <NavItem className={router.pathname === "/favorites" ? "active" : ""}>
+          <Link href="/favorites">Favorites</Link>
         </NavItem>
       </NavList>
     </StyledNav>
