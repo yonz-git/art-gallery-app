@@ -1,5 +1,4 @@
 export default function CommentsList({ comments }) {
-  console.log(comments);
   return (
     <section>
       <h3>Comments:</h3>
