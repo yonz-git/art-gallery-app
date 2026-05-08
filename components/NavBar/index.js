@@ -7,8 +7,8 @@ const StyledNav = styled.nav`
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #333;
+  background-color: #0a0a0b;
+  border-top: 1px solid #0a0a0b;
 `;
 
 const NavList = styled.ul`
@@ -22,25 +22,26 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   flex: 1;
   display: flex;
-  border-right: 1px solid #333;
+  border-right: 1px solid #0a0a0b;
+  pointer: cursor;
 
   &.active {
-    background-color: #ccf2ad;
+    background-color: #1f2023;
+    font-weight: bold;
   }
 
   &:hover {
-    background-color: #ccf2ad59;
+    background-color: #1f2023;
   }
 
   a {
-    pointer: cursor;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
 
