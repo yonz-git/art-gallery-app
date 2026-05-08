@@ -17,8 +17,6 @@ const CardWrapper = styled.section`
   border-radius: 4px;
 `;
 
-
-
 const ColorWrapper = styled.ul`
   display: flex;
   flex-direction: row;
@@ -36,7 +34,6 @@ export default function ArtPieceCard({
   foundArtPiece,
   setArtPieces,
 }) {
-  
   const { slug, imageSource, name, artist, colors, genre, year } =
     foundArtPiece;
 
@@ -65,12 +62,11 @@ export default function ArtPieceCard({
           isFavorite={foundArtPiece.isFavorite}
         />
 
-   
         <ColorWrapper>
           <ColorPalette colors={colors} />
         </ColorWrapper>
         <h2>
-          {artist}: "{name}“ <em>{year}</em>
+          {artist}: &quot;{name}&quot; <em>{year}</em>
         </h2>
         <h3>{genre}</h3>
       </CardWrapper>
