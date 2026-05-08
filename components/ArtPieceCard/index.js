@@ -71,7 +71,11 @@ export default function ArtPieceCard({
         <h3>{genre}</h3>
       </CardWrapper>
       <FormWrapper>
-        <CommentsForm />
+        <CommentsForm
+          artPieces={artPieces}
+          artPiece={foundArtPiece}
+          setArtPieces={setArtPieces}
+        />
       </FormWrapper>
     </>
   );
