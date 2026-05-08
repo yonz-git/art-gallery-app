@@ -1,6 +1,7 @@
 import CommentsList from "../CommentsList";
 import { useState } from "react";
 import { uid } from "react-uid";
+import { Form, Label, InputField, SubmitButton } from "./style";
 
 export default function CommentsForm() {
   function handleSubmit(event) {
@@ -17,17 +18,17 @@ export default function CommentsForm() {
   const [comments, setComments] = useState([]);
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="comment">Add Comment</label>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Label htmlFor="comment">Add Comment</Label>
+        <InputField
           id="comment"
           type="text"
           name="comment"
           placeholder="place a comment here…"
           required
         />
-        <button type="submit">Send</button>
-      </form>
+        <SubmitButton type="submit">Send</SubmitButton>
+      </Form>
       <CommentsList comments={comments} />
     </>
   );

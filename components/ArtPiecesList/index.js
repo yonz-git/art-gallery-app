@@ -1,6 +1,11 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
 import { GetArtPiecesData } from "@/libs/artPieces";
+import styled from "styled-components";
 
+const ListItem = styled.li`
+  display: flex;
+  justify-content: flex-start;
+`;
 export default function ArtPiecesList() {
   const { artPieces, error, isLoading } = GetArtPiecesData();
   if (error) {
@@ -14,9 +19,9 @@ export default function ArtPiecesList() {
   return (
     <ul>
       {artPieces.map((artPiece) => (
-        <li key={artPiece.slug}>
+        <ListItem key={artPiece.slug}>
           <ArtPiecePreview artPiece={artPiece} />
-        </li>
+        </ListItem>
       ))}
     </ul>
   );
