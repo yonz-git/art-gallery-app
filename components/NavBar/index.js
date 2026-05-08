@@ -33,7 +33,6 @@ const NavItem = styled.li`
   }
 
   a {
-    pointer: cursor;
     display: flex;
     align-items: center;
     justify-content: center;
