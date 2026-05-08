@@ -1,13 +1,15 @@
 import CommentsList from "../CommentsList";
 import { useState } from "react";
+import { uid } from "react-uid";
 
 export default function CommentsForm() {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    const id = uid(data);
     setComments([
-      { content: data.comment, timestamp: Date.now() },
+      { content: data.comment, timestamp: Date.now(), id: id },
       ...comments,
     ]);
     event.target.reset();
