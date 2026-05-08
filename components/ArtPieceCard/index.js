@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Favorite from "@/assets/favorite.svg";
 import Link from "next/link";
+import ColorPallette from "../ColorPallette";
 
 export default function ArtPieceCard({ foundArtPiece }) {
   const { slug, imageSource, name, artist, colors, genre, year } =
@@ -36,18 +37,8 @@ export default function ArtPieceCard({ foundArtPiece }) {
             gap: "1em",
           }}
         >
-          {colors.map((color) => (
-            <li key={color}>
-              <div
-                style={{
-                  backgroundColor: color,
-                  width: "50px",
-                  height: "50px",
-                  borderRadius: "50%",
-                }}
-              ></div>
-            </li>
-          ))}
+          {" "}
+          <ColorPallette colors={colors} />
         </ul>
         <h2>
           {artist}: „{name}“<em>{year}</em>
