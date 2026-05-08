@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const StyledNav = styled.nav`
   position: fixed;
@@ -23,27 +24,43 @@ const NavItem = styled.li`
   display: flex;
   border-right: 1px solid #333;
 
-  &:last-child {
-    border-right: none;
+  &.active {
+    background-color: #ccf2ad;
+  }
+
+  &:hover {
+    background-color: #ccf2ad59;
+  }
+
+  a {
+    pointer: cursor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
   }
 `;
 
-const NavBar = () => {
+export default function NavBar() {
+  const router = useRouter();
+  console.dir(router);
+
   return (
     <StyledNav>
       <NavList>
-        <NavItem>
+        <NavItem className={router.pathname === "/" ? "active" : ""}>
           <Link href="/">Spotlight</Link>
         </NavItem>
-        <NavItem>
+        <NavItem className={router.pathname === "/art-pieces" ? "active" : ""}>
           <Link href="/art-pieces">Art Pieces</Link>
         </NavItem>
-        <NavItem>
+        <NavItem className={router.pathname === "/favorite" ? "active" : ""}>
           <Link href="/favorite">Favorites</Link>
         </NavItem>
       </NavList>
     </StyledNav>
   );
-};
-
-export default NavBar;
+}
