@@ -10,8 +10,8 @@ export default function CommentsList({ comments }) {
           const fullTime = `${timestamp.getHours()}:${timestamp.getMinutes()}:${timestamp.getSeconds()}`;
           return (
             <li key={index}>
-              <blockquote>"{comment.content}"</blockquote>({fullDate},{fullTime}
-              )
+              <blockquote>&quot;{comment.content}&quot;</blockquote>({fullDate},
+              {fullTime})
             </li>
           );
         })}
