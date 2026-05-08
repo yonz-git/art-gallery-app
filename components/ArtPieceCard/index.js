@@ -4,7 +4,6 @@ import Link from "next/link";
 import ColorPalette from "../ColorPalette";
 import CommentsForm from "../CommentsForm";
 import styled from "styled-components";
-import { Form } from "../CommentsForm/style";
 
 const CardWrapper = styled.section`
   display: flex;
