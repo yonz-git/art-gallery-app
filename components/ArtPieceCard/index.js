@@ -29,7 +29,7 @@ const ColorWrapper = styled.ul`
 `;
 
 const FormWrapper = styled.section`
-  border-top: solid 1px black;
+  border-top: solid 1px #dddddd;
 `;
 export default function ArtPieceCard({ foundArtPiece }) {
   const { slug, imageSource, name, artist, colors, genre, year } =

@@ -20,7 +20,7 @@ export const InputField = styled.input`
 export const SubmitButton = styled.button`
   cursor: pointer;
   background-color: #f5f5f5;
-  border: 1px solid #333;
+  border: 1px solid #dddddd;
   border-radius: 4px;
   min-height: 2rem;
   color: black;

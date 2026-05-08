@@ -12,7 +12,28 @@ export default createGlobalStyle`
     font-family: system-ui;
   }
 
-  ul{
+  ul {
   list-style: none;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 2rem;
+    line-height: 1.25;
+    letter-spacing: -0.015;
+  }
+  h3 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
   }
 `;
