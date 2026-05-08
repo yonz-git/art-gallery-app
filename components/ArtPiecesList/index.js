@@ -9,7 +9,7 @@ const ListItem = styled.li`
 const ListWrapper = styled.ul`
   margin-bottom: 60px;
 `;
-export default function ArtPiecesList() {
+export default function ArtPiecesList({ artPieces, setArtPieces }) {
   const { artPieces, error, isLoading } = GetArtPiecesData();
   if (error) {
     console.error("ERROR!", error.info);
@@ -23,7 +23,12 @@ export default function ArtPiecesList() {
     <ListWrapper>
       {artPieces.map((artPiece) => (
         <ListItem key={artPiece.slug}>
-          <ArtPiecePreview artPiece={artPiece} />
+          <ArtPiecePreview
+            artPieces={artPieces}
+            artPiece={artPiece}
+            setArtPieces={setArtPieces}
+         
+/>
         </ListItem>
       ))}
     </ListWrapper>

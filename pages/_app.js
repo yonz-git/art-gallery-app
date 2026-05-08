@@ -1,38 +1,60 @@
+import { useEffect, useState } from "react";
 import GlobalStyle from "../styles";
-import { SWRConfig } from "swr";
+import useSWR, { SWRConfig } from "swr";
+
+const fetcher = async (resource, init) => {
+  const result = await fetch(resource, init);
+
+  if (!result.ok) {
+    const error = new Error("An error occurred while fetching the data.");
+    error.info = await result.json();
+    error.status = result.status;
+    throw error;
+  }
+
+  return result.json();
+};
 
 export default function App({ Component, pageProps }) {
+  const { data, error, isLoading, mutate } = useSWR(
+    "https://example-apis.vercel.app/api/art",
+    fetcher
+  );
+
+  const [artPieces, setArtPieces] = useState([]);
+
+  useEffect(() => {
+    if (data) {
+      setArtPieces(data);
+    }
+  }, [data]);
+
+  if (error) {
+    console.error("ERROR!", error.info);
+    return (
+      <div>
+        <p>{error.message}</p>
+        <p>Status: {error.status}</p>
+      </div>
+    );
+  }
+
+  if (isLoading || !artPieces || artPieces.length === 0)
+    return (
+      <div>
+        <p>loading...</p>
+      </div>
+    );
+
   return (
     <>
       <GlobalStyle />
-      <SWRConfig
-        value={{
-          fetcher: async (resource, init) => {
-            const res = await fetch(resource, init);
-
-            // If the status code is not in the range 200-299,
-
-            // we still try to parse and throw it.
-
-            if (!res.ok) {
-              const error = new Error(
-                "An error occurred while fetching the data."
-              );
-
-              // Attach extra info to the error object.
-
-              error.info = await res.json();
-
-              error.status = res.status;
-
-              throw error;
-            }
-
-            return res.json();
-          },
-        }}
-      >
-        <Component {...pageProps} />
+      <SWRConfig value={{ fetcher }}>
+        <Component
+          {...pageProps}
+          artPieces={artPieces}
+          setArtPieces={setArtPieces}
+        />
       </SWRConfig>
     </>
   );

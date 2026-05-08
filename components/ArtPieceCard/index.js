@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Favorite from "@/assets/favorite.svg";
 import Link from "next/link";
+import FavoriteButton from "@/components/FavoriteButton";
+import { ToggleFavorite } from "@/libs/artPieces";
 import ColorPalette from "../ColorPalette";
 import CommentsForm from "../CommentsForm";
 import styled from "styled-components";
@@ -16,10 +17,7 @@ const CardWrapper = styled.section`
   border-radius: 4px;
 `;
 
-const FavortiteIcon = styled.span`
-  position: absolute;
-  align-self: center;
-`;
+
 
 const ColorWrapper = styled.ul`
   display: flex;
@@ -32,7 +30,13 @@ const FormWrapper = styled.section`
   border-top: solid 1px #dddddd;
   margin-bottom: 75px;
 `;
-export default function ArtPieceCard({ foundArtPiece }) {
+
+export default function ArtPieceCard({
+  artPieces,
+  foundArtPiece,
+  setArtPieces,
+}) {
+  
   const { slug, imageSource, name, artist, colors, genre, year } =
     foundArtPiece;
 
@@ -54,14 +58,19 @@ export default function ArtPieceCard({ foundArtPiece }) {
           />
         </Link>
 
-        <FavortiteIcon>
-          <Favorite />
-        </FavortiteIcon>
+        <FavoriteButton
+          onToggleFavorite={() =>
+            setArtPieces(ToggleFavorite(artPieces, foundArtPiece))
+          }
+          isFavorite={foundArtPiece.isFavorite}
+        />
+
+   
         <ColorWrapper>
           <ColorPalette colors={colors} />
         </ColorWrapper>
         <h2>
-          {artist}: „{name}“<em>{year}</em>
+          {artist}: "{name}“ <em>{year}</em>
         </h2>
         <h3>{genre}</h3>
       </CardWrapper>

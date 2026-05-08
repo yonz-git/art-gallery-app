@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import Favorite from "@/assets/favorite.svg";
+import FavoriteButton from "../FavoriteButton";
+import { ToggleFavorite } from "@/libs/artPieces";
 
-export default function ArtPiecePreview({ artPiece }) {
+export default function ArtPiecePreview({ artPieces, artPiece, setArtPieces }) {
   const { imageSource, name, slug, artist } = artPiece;
+
   return (
     <section>
       <Link href={`/art-pieces/${slug}`}>
@@ -18,11 +20,14 @@ export default function ArtPiecePreview({ artPiece }) {
         />
       </Link>
 
-      <span>
-        <Favorite />
-      </span>
+      <FavoriteButton
+        onToggleFavorite={() =>
+          setArtPieces(ToggleFavorite(artPieces, artPiece))
+        }
+        isFavorite={artPiece.isFavorite}
+      />
       <h2>
-        „{name}“ by {artist}
+        "{name}“ by {artist}
       </h2>
     </section>
   );
