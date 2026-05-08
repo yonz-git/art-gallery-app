@@ -30,6 +30,7 @@ const ColorWrapper = styled.ul`
 
 const FormWrapper = styled.section`
   border-top: solid 1px #dddddd;
+  margin-bottom: 75px;
 `;
 export default function ArtPieceCard({ foundArtPiece }) {
   const { slug, imageSource, name, artist, colors, genre, year } =
