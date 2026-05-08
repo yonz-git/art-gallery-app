@@ -2,11 +2,12 @@ import Image from "next/image";
 import Favorite from "@/assets/favorite.svg";
 import Link from "next/link";
 import ColorPalette from "../ColorPalette";
+import CommentsForm from "../CommentsForm";
 
 export default function ArtPieceCard({ foundArtPiece }) {
   const { slug, imageSource, name, artist, colors, genre, year } =
     foundArtPiece;
-  console.log(foundArtPiece);
+
   return (
     <>
       <span>
@@ -14,7 +15,6 @@ export default function ArtPieceCard({ foundArtPiece }) {
       </span>
       <section>
         <Link href={`/art-pieces/${slug}`}>
-          {" "}
           <Image
             src={imageSource}
             alt={name}
@@ -37,13 +37,15 @@ export default function ArtPieceCard({ foundArtPiece }) {
             gap: "1em",
           }}
         >
-          {" "}
           <ColorPalette colors={colors} />
         </ul>
         <h2>
           {artist}: „{name}“<em>{year}</em>
         </h2>
         <h3>{genre}</h3>
+      </section>
+      <section>
+        <CommentsForm />
       </section>
     </>
   );
