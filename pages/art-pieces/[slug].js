@@ -14,7 +14,6 @@ export default function ArtPiecesDetail() {
 
   if (isLoading || !artPieces) return <div>loading...</div>;
   const foundArtPiece = artPieces.find((artPiece) => artPiece.slug === slug);
-  console.log(foundArtPiece);
   return (
     <>
       <h1>Art Piece Detail Page</h1>

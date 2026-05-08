@@ -2,11 +2,13 @@ import Image from "next/image";
 import Favorite from "@/assets/favorite.svg";
 import Link from "next/link";
 import ColorPalette from "../ColorPalette";
+import CommentsForm from "../CommentsForm";
+import CommentsList from "../CommentsList";
 
 export default function ArtPieceCard({ foundArtPiece }) {
   const { slug, imageSource, name, artist, colors, genre, year } =
     foundArtPiece;
-  console.log(foundArtPiece);
+
   return (
     <>
       <span>
@@ -44,6 +46,9 @@ export default function ArtPieceCard({ foundArtPiece }) {
           {artist}: „{name}“<em>{year}</em>
         </h2>
         <h3>{genre}</h3>
+      </section>
+      <section>
+        <CommentsForm />
       </section>
     </>
   );
