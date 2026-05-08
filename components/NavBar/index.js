@@ -53,7 +53,9 @@ export default function NavBar() {
         <NavItem className={router.pathname === "/" ? "active" : ""}>
           <Link href="/">Spotlight</Link>
         </NavItem>
-        <NavItem className={router.pathname === "/art-pieces" ? "active" : ""}>
+        <NavItem
+          className={router?.pathname.includes("/art-pieces") ? "active" : ""}
+        >
           <Link href="/art-pieces">Art Pieces</Link>
         </NavItem>
         <NavItem className={router.pathname === "/favorite" ? "active" : ""}>
