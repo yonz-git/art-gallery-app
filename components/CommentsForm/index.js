@@ -26,6 +26,7 @@ export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
       )
     );
     event.target.reset();
+    event.target.comment.focus();
   }
 
   return (
