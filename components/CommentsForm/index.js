@@ -6,7 +6,6 @@ export default function CommentsForm() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
     setComments([
       { content: data.comment, timestamp: Date.now() },
       ...comments,
