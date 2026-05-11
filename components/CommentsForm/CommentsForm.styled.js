@@ -32,3 +32,10 @@ export const SubmitButton = styled.button`
     background-color: #ccf2ad59;
   }
 `;
+export const SuccessMessage = styled.div`
+  border: solid 1.5px #1ed306;
+  border-radius: 4px;
+  background: none;
+  font-size: 0.5rem;
+  align-items: center;
+`;

@@ -1,8 +1,17 @@
 import CommentsList from "../CommentsList";
 import { uid } from "react-uid";
-import { Form, Label, InputField, SubmitButton } from "./CommentsForm.styled";
+import {
+  Form,
+  Label,
+  InputField,
+  SubmitButton,
+  SuccessMessage,
+} from "./CommentsForm.styled";
+import { useState } from "react";
 
 export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
+  const [showSuccess, setShowSuccess] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -24,6 +33,8 @@ export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
           : art
       )
     );
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2000);
     event.target.reset();
     event.target.comment.focus();
   }
@@ -42,6 +53,11 @@ export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
         />
         <SubmitButton type="submit">Send</SubmitButton>
       </Form>
+      {showSuccess && (
+        <SuccessMessage aria-label="Success Message for adding a new Comment">
+          <p>✓ Comment successfully added!</p>
+        </SuccessMessage>
+      )}
       <CommentsList comments={artPiece.comments} />
     </>
   );
