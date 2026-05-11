@@ -3,7 +3,7 @@ import { ListItem, ListWrapper } from "./ArtPiecesList.styled";
 
 export default function ArtPiecesList({ artPieces, setArtPieces }) {
   return (
-    <ListWrapper>
+    <ListWrapper aria-label="Art Pieces List">
       {artPieces.map((artPiece) => (
         <ListItem key={artPiece.slug}>
           <ArtPiecePreview

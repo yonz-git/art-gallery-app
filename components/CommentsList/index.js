@@ -5,7 +5,7 @@ export default function CommentsList({ comments }) {
     return "";
   }
   return (
-    <section>
+    <section aria-label="Comments Section">
       <h3>Comments:</h3>
       <ul>
         {comments.map((comment) => {

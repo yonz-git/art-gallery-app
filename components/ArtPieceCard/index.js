@@ -19,7 +19,7 @@ export default function ArtPieceCard({
       <span>
         <Link href="/art-pieces">Go Back to Overview</Link>
       </span>
-      <CardWrapper>
+      <CardWrapper aria-label="Art Piece Section">
         <Link href={`/art-pieces/${slug}`}>
           <Image
             src={imageSource}
@@ -39,7 +39,7 @@ export default function ArtPieceCard({
           isFavorite={foundArtPiece.isFavorite}
         />
 
-        <ColorWrapper>
+        <ColorWrapper aria-label="Colors Section">
           <ColorPalette colors={colors} />
         </ColorWrapper>
         <h2>
@@ -47,7 +47,7 @@ export default function ArtPieceCard({
         </h2>
         <h3>{genre}</h3>
       </CardWrapper>
-      <FormWrapper>
+      <FormWrapper aria-label="Form Section">
         <CommentsForm
           artPieces={artPieces}
           artPiece={foundArtPiece}
