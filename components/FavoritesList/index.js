@@ -1,4 +1,5 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
+import {} from "./FavoriteList.styled";
 
 export default function FavoritesList({ artPieces, setArtPieces }) {
   const favoritePieces = artPieces.filter((artPiece) => {

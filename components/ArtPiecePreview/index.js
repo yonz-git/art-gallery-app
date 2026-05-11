@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton";
 import { ToggleFavorite } from "@/libs/artPieces";
+import { StyledImage } from "./ArtPiecePreview.styled";
 
 export default function ArtPiecePreview({ artPieces, artPiece, setArtPieces }) {
   const { imageSource, name, slug, artist } = artPiece;
@@ -9,15 +9,7 @@ export default function ArtPiecePreview({ artPieces, artPiece, setArtPieces }) {
   return (
     <section>
       <Link href={`/art-pieces/${slug}`}>
-        <Image
-          src={imageSource}
-          alt={name}
-          width="300"
-          height="150"
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <StyledImage src={imageSource} alt={name} width={300} height={150} />;
       </Link>
 
       <FavoriteButton

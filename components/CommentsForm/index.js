@@ -1,7 +1,6 @@
 import CommentsList from "../CommentsList";
 import { uid } from "react-uid";
-import { Form, Label, InputField, SubmitButton } from "./style";
-import useLocalStorageState from "use-local-storage-state";
+import { Form, Label, InputField, SubmitButton } from "./CommentsForm.styled";
 
 export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
   function handleSubmit(event) {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FavoriteButton from "@/components/FavoriteButton";
 import { ToggleFavorite } from "@/libs/artPieces";
+import {} from "./Spotlight.styled";
 
 export default function Spotlight({ artPieces, artPiece, setArtPieces }) {
   return (
