@@ -4,8 +4,8 @@ import ArtPieceCard from ".";
 
 // Mocking child components that we aren't testing right now
 // This keeps the test focused only on ArtPieceCard
-jest.mock("../ColorPalette", () => () => <div data-testid="color-palette" />);
-jest.mock("../CommentsForm", () => () => <div data-testid="comments-form" />);
+jest.mock("../ColorPalette", () => <div data-testid="color-palette" />);
+jest.mock("../CommentsForm", () => <div data-testid="comments-form" />);
 
 jest.mock("../FavoriteButton", () => {
   return function MockFavoriteButton({ onToggleFavorite }) {
