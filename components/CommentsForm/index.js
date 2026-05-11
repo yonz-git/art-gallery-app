@@ -1,8 +1,11 @@
 import CommentsList from "../CommentsList";
 import { uid } from "react-uid";
 import { Form, Label, InputField, SubmitButton } from "./CommentsForm.styled";
+import { useState } from "react";
 
 export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
+  const [showSuccess, setShowSuccess] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
