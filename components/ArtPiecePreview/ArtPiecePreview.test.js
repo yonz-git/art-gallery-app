@@ -29,7 +29,7 @@ test("renders the image, title, and artist", () => {
     />
   );
 
-  // Check for Image (using alt text)
+  // Check for Image
   const image = screen.getByAltText(mockArtPiece.name);
   expect(image).toBeInTheDocument();
 

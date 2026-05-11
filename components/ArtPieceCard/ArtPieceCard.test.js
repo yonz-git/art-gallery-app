@@ -40,11 +40,11 @@ test("renders art piece details: image, title, artist, year and genre", () => {
     />
   );
 
-  // Check for the Image (via alt text)
+  // Check for the Image
   const image = screen.getByAltText(mockArtPiece.name);
   expect(image).toBeInTheDocument();
 
-  // Check for Artist and Name (in the <h2>)
+  // Check for Artist and Nam
   const heading = screen.getByRole("heading", { level: 2 });
   expect(heading).toHaveTextContent(mockArtPiece.artist);
   expect(heading).toHaveTextContent(mockArtPiece.name);
