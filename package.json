@@ -19,7 +19,8 @@
     "react-dom": "18.2.0",
     "react-uid": "^2.4.0",
     "styled-components": "^6.0.2",
-    "swr": "^2.4.1"
+    "swr": "^2.4.1",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
