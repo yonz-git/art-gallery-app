@@ -7,7 +7,7 @@ export default function ArtPiecePreview({ artPieces, artPiece, setArtPieces }) {
   const { imageSource, name, slug, artist } = artPiece;
 
   return (
-    <section>
+    <section aria-label="Art Piece Section">
       <ImageWrap>
         <Link href={`/art-pieces/${slug}`}>
           <StyledImage src={imageSource} alt={name} width={300} height={150} />;

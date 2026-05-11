@@ -34,6 +34,7 @@ export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
         <Label htmlFor="comment">Add Comment</Label>
         <InputField
           id="comment"
+          aria-label="Inputfield for Comments"
           type="text"
           name="comment"
           placeholder="place a comment here…"
