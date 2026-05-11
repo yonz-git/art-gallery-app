@@ -1,4 +1,5 @@
 import FavoriteIcon from "@/assets/favorite.svg";
+import { StyledButton } from "./FavoriteButton.styled";
 
 export default function FavoriteButton({
   onToggleFavorite,
@@ -10,9 +11,13 @@ export default function FavoriteButton({
   }
 
   return (
-    <button onClick={handleClick} disabled={disabled ? "disabled" : null}>
-      {isFavorite ? "true" : "false"}
+    <StyledButton
+      onClick={handleClick}
+      $isFavorite={isFavorite}
+      $isDisabled={disabled}
+      disabled={disabled ? "disabled" : null}
+    >
       <FavoriteIcon />
-    </button>
+    </StyledButton>
   );
 }

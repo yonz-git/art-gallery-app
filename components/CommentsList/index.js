@@ -1,6 +1,11 @@
+import {} from "./CommentsList.styled";
+
 export default function CommentsList({ comments }) {
+  if (!comments) {
+    return "";
+  }
   return (
-    <section>
+    <section aria-label="Comments Section">
       <h3>Comments:</h3>
       <ul>
         {comments.map((comment) => {

@@ -1,27 +1,51 @@
 import CommentsList from "../CommentsList";
-import { useState } from "react";
 import { uid } from "react-uid";
-import { Form, Label, InputField, SubmitButton } from "./style";
+import {
+  Form,
+  Label,
+  InputField,
+  SubmitButton,
+  SuccessMessage,
+} from "./CommentsForm.styled";
+import { useState } from "react";
 
-export default function CommentsForm() {
+export default function CommentsForm({ artPieces, artPiece, setArtPieces }) {
+  const [showSuccess, setShowSuccess] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     const id = uid(data);
-    setComments([
-      { content: data.comment, timestamp: Date.now(), id: id },
-      ...comments,
-    ]);
+
+    setArtPieces(
+      artPieces.map((art) =>
+        art.slug === artPiece.slug
+          ? {
+              ...art,
+              comments: art.comments
+                ? [
+                    { content: data.comment, timestamp: Date.now(), id: id },
+                    ...art.comments,
+                  ]
+                : [{ content: data.comment, timestamp: Date.now(), id: id }],
+            }
+          : art
+      )
+    );
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2000);
     event.target.reset();
+    event.target.comment.focus();
   }
-  const [comments, setComments] = useState([]);
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="comment">Add Comment</Label>
         <InputField
           id="comment"
+          aria-label="Inputfield for Comments"
           type="text"
           name="comment"
           placeholder="place a comment here…"
@@ -29,7 +53,12 @@ export default function CommentsForm() {
         />
         <SubmitButton type="submit">Send</SubmitButton>
       </Form>
-      <CommentsList comments={comments} />
+      {showSuccess && (
+        <SuccessMessage aria-label="Success Message for adding a new Comment">
+          <p>✓ Comment successfully added!</p>
+        </SuccessMessage>
+      )}
+      <CommentsList comments={artPiece.comments} />
     </>
   );
 }

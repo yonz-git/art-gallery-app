@@ -1,10 +1,7 @@
 import NavBar from "@/components/NavBar";
 
-
-
 import ArtPieceCard from "@/components/ArtPieceCard";
 import { useRouter } from "next/router";
-import { GetArtPiecesData } from "@/libs/artPieces";
 import Head from "next/head";
 
 export default function ArtPiecesDetail({ artPieces, setArtPieces }) {
@@ -22,7 +19,7 @@ export default function ArtPiecesDetail({ artPieces, setArtPieces }) {
         foundArtPiece={foundArtPiece}
         setArtPieces={setArtPieces}
       />
-           <NavBar />
+      <NavBar />
     </>
   );
 }

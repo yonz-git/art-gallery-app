@@ -1,16 +1,9 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
-import styled from "styled-components";
+import { ListItem, ListWrapper } from "./ArtPiecesList.styled";
 
-const ListItem = styled.li`
-  display: flex;
-  justify-content: flex-start;
-`;
-const ListWrapper = styled.ul`
-  margin-bottom: 60px;
-`;
 export default function ArtPiecesList({ artPieces, setArtPieces }) {
   return (
-    <ListWrapper>
+    <ListWrapper aria-label="Art Pieces List">
       {artPieces.map((artPiece) => (
         <ListItem key={artPiece.slug}>
           <ArtPiecePreview

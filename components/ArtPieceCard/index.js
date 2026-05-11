@@ -4,30 +4,8 @@ import FavoriteButton from "@/components/FavoriteButton";
 import { ToggleFavorite } from "@/libs/artPieces";
 import ColorPalette from "../ColorPalette";
 import CommentsForm from "../CommentsForm";
-import styled from "styled-components";
-
-const CardWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 8px 16px;
-  margin: -8px -16px;
-  border-radius: 4px;
-`;
-
-const ColorWrapper = styled.ul`
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 1em;
-`;
-
-const FormWrapper = styled.section`
-  border-top: solid 1px #dddddd;
-  margin-bottom: 75px;
-`;
+import { CardWrapper, ColorWrapper, FormWrapper } from "./ArtPieceCard.styled";
+import { ImageWrap } from "../ArtPiecePreview/ArtPiecePreview.styled";
 
 export default function ArtPieceCard({
   artPieces,
@@ -40,29 +18,31 @@ export default function ArtPieceCard({
   return (
     <>
       <span>
-        <Link href="/art-pieces">Go Back to Overview</Link>
+        <Link href="/art-pieces">&lt; Go Back to Overview</Link>
       </span>
-      <CardWrapper>
-        <Link href={`/art-pieces/${slug}`}>
-          <Image
-            src={imageSource}
-            alt={name}
-            width="300"
-            height="150"
-            style={{
-              objectFit: "cover",
-            }}
+      <CardWrapper aria-label="Art Piece Section">
+        <ImageWrap>
+          <Link href={`/art-pieces/${slug}`}>
+            <Image
+              src={imageSource}
+              alt={name}
+              width="300"
+              height="150"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </Link>
+
+          <FavoriteButton
+            onToggleFavorite={() =>
+              setArtPieces(ToggleFavorite(artPieces, foundArtPiece))
+            }
+            isFavorite={foundArtPiece.isFavorite}
           />
-        </Link>
+        </ImageWrap>
 
-        <FavoriteButton
-          onToggleFavorite={() =>
-            setArtPieces(ToggleFavorite(artPieces, foundArtPiece))
-          }
-          isFavorite={foundArtPiece.isFavorite}
-        />
-
-        <ColorWrapper>
+        <ColorWrapper aria-label="Colors Section">
           <ColorPalette colors={colors} />
         </ColorWrapper>
         <h2>
@@ -70,8 +50,12 @@ export default function ArtPieceCard({
         </h2>
         <h3>{genre}</h3>
       </CardWrapper>
-      <FormWrapper>
-        <CommentsForm />
+      <FormWrapper aria-label="Form Section">
+        <CommentsForm
+          artPieces={artPieces}
+          artPiece={foundArtPiece}
+          setArtPieces={setArtPieces}
+        />
       </FormWrapper>
     </>
   );
