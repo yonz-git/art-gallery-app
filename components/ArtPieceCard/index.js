@@ -18,7 +18,7 @@ export default function ArtPieceCard({
   return (
     <>
       <span>
-        <Link href="/art-pieces">Go Back to Overview</Link>
+        <Link href="/art-pieces">&lt; Go Back to Overview</Link>
       </span>
       <CardWrapper aria-label="Art Piece Section">
         <ImageWrap>

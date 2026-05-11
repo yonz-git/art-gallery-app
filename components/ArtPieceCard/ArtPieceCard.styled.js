@@ -16,6 +16,7 @@ export const ColorWrapper = styled.ul`
   flex-direction: row;
   list-style: none;
   gap: 1em;
+  padding: 0;
 `;
 
 export const FormWrapper = styled.section`
