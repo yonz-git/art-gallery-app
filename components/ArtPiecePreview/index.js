@@ -10,7 +10,7 @@ export default function ArtPiecePreview({ artPieces, artPiece, setArtPieces }) {
     <section aria-label="Art Piece Section">
       <ImageWrap>
         <Link href={`/art-pieces/${slug}`}>
-          <StyledImage src={imageSource} alt={name} width={300} height={150} />;
+          <StyledImage src={imageSource} alt={name} width={300} height={150} />
         </Link>
 
         <FavoriteButton

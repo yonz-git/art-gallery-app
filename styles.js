@@ -36,4 +36,35 @@ export default createGlobalStyle`
     line-height: 1.6;
     letter-spacing: 0.01em;
   }
+
+
+
+  body {
+    padding:1em 3em 3em;
+    color:#333;
+    background:#eaeaea;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  a {text-decoration:none;color:#d5561f;margin:.5em 0;display:inline-table;}
+  a:hover {text-decoration:underline;}
+
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color:#eaeaea;
+    background:#333;
+  }
+}
+
+
+
 `;
