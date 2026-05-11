@@ -4,30 +4,7 @@ import FavoriteButton from "@/components/FavoriteButton";
 import { ToggleFavorite } from "@/libs/artPieces";
 import ColorPalette from "../ColorPalette";
 import CommentsForm from "../CommentsForm";
-import styled from "styled-components";
-
-const CardWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 8px 16px;
-  margin: -8px -16px;
-  border-radius: 4px;
-`;
-
-const ColorWrapper = styled.ul`
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 1em;
-`;
-
-const FormWrapper = styled.section`
-  border-top: solid 1px #dddddd;
-  margin-bottom: 75px;
-`;
+import { CardWrapper, ColorWrapper, FormWrapper } from "./ArtPieceCard.styled";
 
 export default function ArtPieceCard({
   artPieces,

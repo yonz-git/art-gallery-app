@@ -1,3 +1,5 @@
+import {} from "./CommentsList.styled";
+
 export default function CommentsList({ comments }) {
   if (!comments) {
     return "";

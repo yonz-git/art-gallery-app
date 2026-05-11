@@ -1,4 +1,5 @@
 import FavoriteIcon from "@/assets/favorite.svg";
+import {} from "./FavoriteButton.styled";
 
 export default function FavoriteButton({
   onToggleFavorite,
